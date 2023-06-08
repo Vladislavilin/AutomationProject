@@ -5,7 +5,10 @@ import com.loop.test.utilities.ConfigurationReader;
 import com.loop.test.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+
+import java.text.SimpleDateFormat;
 
 public class T6_registration_form {
 
@@ -25,7 +28,25 @@ public class T6_registration_form {
         Driver.getDriver().findElement(By.xpath("//input[@name='password']")).sendKeys(faker.internet().password());
     Driver.getDriver().findElement(By.xpath("//input[@name='phone']")).sendKeys(faker.numerify("571-###-####"));
     Driver.getDriver().findElement(By.xpath("//input[@value='other']")).click();
-    Driver.getDriver().findElement(By.xpath("//input[@name='birthday']")).sendKeys(faker.numerify("##/##/####"));
+
+        SimpleDateFormat day = new SimpleDateFormat("MM/dd/yyyy");
+
+
+        String dob = day.format(faker.date().birthday());
+
+    Driver.getDriver().findElement(By.xpath("//input[@name='birthday']")).sendKeys(dob);
+
+        Select select = new Select(Driver.getDriver().findElement(By.name("department")));
+        select.selectByValue("MO");
+
+       select = new Select(Driver.getDriver().findElement(By.name("job_title")));
+        select.selectByVisibleText("Developer");
+
+        Driver.getDriver().findElement(By.xpath("//input[@value='java']")).click();
+
+        Driver.getDriver().findElement(By.xpath("//button[@type='submit']")).click();
+
+
 
 
 
