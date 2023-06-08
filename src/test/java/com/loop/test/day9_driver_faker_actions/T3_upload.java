@@ -20,6 +20,8 @@ public class T3_upload {
     public void test() throws InterruptedException {
         Driver.getDriver().get(ConfigurationReader.getProperty("guru99.url"));
         String path = "/Users/kamillagolubeva/Desktop/some-file (2).txt";
+
+       //as argument pass as String it's gonna be the path of the location if the file
         Driver.getDriver().findElement(By.xpath("//input[@id='uploadfile_0']")).sendKeys(path);
       Driver.getDriver().findElement(By.id("terms")).click();
       Driver.getDriver().findElement(By.xpath("//button[@id='submitbutton']")).click();
