@@ -1,5 +1,8 @@
 package com.loop.test.utilities;
 
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 public class test1 {
     public static void main(String[] args) {
         String[] things = {"house", "shed", "slide",
@@ -30,5 +33,20 @@ public class test1 {
                     System.out.print(7);
             }
         }
+
     }
+//        LoopCampVerselUtil.loopCampPractice("add-remove-elements");
+LoopPracticeDynamicLoading page;
+        @BeforeMethod
+        public void setUp(){
+            page = new LoopPracticeDynamicLoading();
+            Driver.getDriver().get(ConfigurationReader.getProperty("loop.practice"));
+        }
+
+        @Test
+        public void test_method(){
+            BrowserUtils.loopLinkClick("Context Menu");
+        }
+
+
 }

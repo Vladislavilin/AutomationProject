@@ -1,9 +1,13 @@
 package com.loop.test.utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.*;
 
 import static org.testng.Assert.assertEquals;
@@ -58,5 +62,17 @@ public class BrowserUtils {
     public static void validateTitle(WebDriver driver, String expectedTitle){
         assertEquals(driver.getTitle(),expectedTitle);
     }
+
+    /**
+     *
+
+     @param nameOfthePage from loop practice page
+     once you on the page call it
+     @nsh*/
+    public static void loopLinkClick(String nameOfthePage){
+        WebElement element = Driver.getDriver().findElement(By.xpath("//a[.='" + nameOfthePage + "']"));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();}
 
 }
