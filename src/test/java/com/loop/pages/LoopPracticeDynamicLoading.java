@@ -1,5 +1,8 @@
-package com.loop.test.utilities;
+package com.loop.pages;
 
+import com.loop.test.utilities.BrowserUtils;
+import com.loop.test.utilities.ConfigurationReader;
+import com.loop.test.utilities.Driver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,6 +17,6 @@ public class LoopPracticeDynamicLoading {
 
     @Test
     public void test_method(){
-        BrowserUtils.loopLinkClick("Context Menu");
+        BrowserUtils.loopLinkClick("Dynamic Loading");
     }
 }

@@ -53,10 +53,11 @@ public class WebDriverFactory {
     }
 
     public static WebDriverWait visible(WebDriver driver, int seconds, String element) {
-        WebDriverWait waiting = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        waiting.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(element)));
-        return waiting;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(element)));
+        return wait;
     }
+
 
     public static WebElement findElementByXpath(WebDriver driver, String xpath) {
         WebElement element = driver.findElement(By.xpath(xpath));

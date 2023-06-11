@@ -1,5 +1,9 @@
 package com.loop.test.utilities;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,17 +40,19 @@ public class test1 {
 
     }
 //        LoopCampVerselUtil.loopCampPractice("add-remove-elements");
-LoopPracticeDynamicLoading page;
-        @BeforeMethod
-        public void setUp(){
-            page = new LoopPracticeDynamicLoading();
-            Driver.getDriver().get(ConfigurationReader.getProperty("loop.practice"));
-        }
 
-        @Test
-        public void test_method(){
-            BrowserUtils.loopLinkClick("Context Menu");
-        }
+
+@Test
+public void test() throws InterruptedException {
+        Driver.getDriver().get("https://loopcamp.vercel.app/");
+
+
+    BrowserUtils.clickWithJS(Driver.getDriver().findElement(By.xpath(" //a[.='LOOPCAMP']")));
+}
+
+
+
+
 
 
 }
